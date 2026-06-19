@@ -47,12 +47,6 @@
             Name: "Bastion"
             Project: profile
           exact_count: 1
-          #count_tag:
-          #  Name: "Bastion"
-           # Project: profile
-          #group_id: "{{BastionSG_out.group_id}}"
+          group_id: "{{BastionSG_out.group_id}}"
           vpc_subnet_id: "{{pubsub1}}"
         register: bastionHost_out
-
-
-

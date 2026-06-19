@@ -62,33 +62,33 @@
         az: "{{zone1}}"
         state: "{{state}}"
         cidr: "{{PriSub1Cidr}}"
-        map_public: yes
+        map_public: no
         resource_tags:
-          Name: vprofile-pubsub4
+          Name: vprofile-prisub1
       register: prisub1_out
 
     - name: Create Private Subnet 2 in Zone2
       ec2_vpc_subnet:
         vpc_id: "{{vpcout.vpc.id}}"
         region: "{{region}}"
-        az: "{{zone1}}"
+        az: "{{zone2}}"
         state: "{{state}}"
         cidr: "{{PriSub2Cidr}}"
-        map_public: yes
+        map_public: no
         resource_tags:
-          Name: vprofile-pubsub5
+          Name: vprofile-prisub2
       register: prisub2_out
 
     - name: Create Private Subnet 3 in Zone3
       ec2_vpc_subnet:
         vpc_id: "{{vpcout.vpc.id}}"
         region: "{{region}}"
-        az: "{{zone1}}"
+        az: "{{zone3}}"
         state: "{{state}}"
         cidr: "{{PriSub3Cidr}}"
-        map_public: yes
+        map_public: no
         resource_tags:
-          Name: vprofile-pubsub6
+          Name: vprofile-prisub3
       register: prisub3_out
 
     - name: Internet Gateway Setup 
@@ -158,4 +158,3 @@
       copy:
         content: "vpcid: {{ vpcout.vpc.id }}\nprisub1: {{ prisub1_out.subnet.id }}\nprisub2: {{ prisub2_out.subnet.id }}\nprisub3: {{ prisub3_out.subnet.id }}\npubsub1: {{ pubsub1_out.subnet.id }}\npubsub2: {{ pubsub2_out.subnet.id }}\npubsub3: {{ pubsub3_out.subnet.id }}\nNATWid: {{ NATGW_out.nat_gateway_id }}\nigwid: {{ igw_out.gateway_id }}\nprivRTid: {{ privRT_out.route_table.id }}"
         dest: vars/output_vars
-
