@@ -1,0 +1,8 @@
+# Minimal inventory for ansible_aws_vpc.
+# Both playbooks target localhost directly (hosts: localhost, connection: local)
+# so no remote hosts are needed.  This file satisfies ansible.cfg's
+# inventory = ./inventory setting and prevents "Could not match supplied host
+# pattern" warnings.
+
+[local]
+localhost ansible_connection=local ansible_python_interpreter=python3
