@@ -1,0 +1,28 @@
+---
+# requirements.yml — Ansible Galaxy collection dependencies
+#
+# Install with:
+#   ansible-galaxy collection install -r requirements.yml
+#
+# Or force-upgrade existing versions:
+#   ansible-galaxy collection install -r requirements.yml --upgrade
+#
+# Module → collection mapping used in this project:
+#
+#   ec2_vpc_net            community.aws
+#   ec2_vpc_subnet         community.aws
+#   ec2_vpc_igw            community.aws
+#   ec2_vpc_route_table    community.aws
+#   ec2_vpc_nat_gateway    community.aws
+#   ec2_key                community.aws
+#   ec2_group              community.aws
+#   ec2_instance           amazon.aws
+
+collections:
+  # Core AWS modules — EC2 instances, key pairs, VPCs
+  - name: amazon.aws
+    version: ">=2.0.0"
+
+  # Extended AWS modules — subnets, IGW, NAT GW, route tables, security groups
+  - name: community.aws
+    version: ">=2.0.0"

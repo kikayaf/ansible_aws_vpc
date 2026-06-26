@@ -1,0 +1,21 @@
+# Python dependencies for ansible_aws_vpc
+#
+# Install everything in one shot:
+#   pip install -r requirements.txt
+#
+# Tip: use a virtual environment to keep these isolated:
+#   python3 -m venv .venv && source .venv/bin/activate
+#   pip install -r requirements.txt
+
+# ── Ansible core ─────────────────────────────────────────────────────────────
+# 2.10+ is required for the amazon.aws / community.aws collection module path.
+# Pin to <3 to stay on the stable 2.x release train.
+ansible>=2.10.0,<3.0.0
+
+# ── AWS SDK (required by all ec2_* modules) ───────────────────────────────────
+boto3>=1.20.0
+botocore>=1.23.0
+
+# ── Linting ───────────────────────────────────────────────────────────────────
+# ansible-lint 6.x works with Ansible 2.10+ and supports profile-based config.
+ansible-lint>=6.0.0,<7.0.0
